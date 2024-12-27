@@ -6,7 +6,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Update npm to the latest version
-RUN npm install -g npm@latest
+RUN npm install -g npm@10.8.2
 
 # Install dependencies
 RUN npm install
