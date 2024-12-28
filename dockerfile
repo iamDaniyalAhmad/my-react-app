@@ -17,9 +17,8 @@ COPY . .
 # Build the application
 RUN npm run build
 
-FROM ubuntu
-RUN apt-get update
-RUN apt-get install nginx -y
-COPY --from=build /app/dist /var/www/html/
+# Expose port (if needed for the app)
 EXPOSE 80
-CMD ["nginx","-g","daemon off;"]
+
+# Command to run the application
+CMD ["npm", "run","preview", "--host"]
